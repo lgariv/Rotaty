@@ -1,5 +1,5 @@
-/Users/lgariv/Desktop/Rotaty/.theos/obj/debug/arm64e/Tweak.xm.b6babecd.o: \
-  /Users/lgariv/Desktop/Rotaty/.theos/obj/debug/arm64e/Tweak.xm.mm \
+/Users/lgariv/Desktop/Rotaty/.theos/obj/debug/arm64/Tweak.xm.ec61be6c.o: \
+  /Users/lgariv/Desktop/Rotaty/.theos/obj/debug/arm64/Tweak.xm.mm \
   /Users/lgariv/theos/Prefix.pch \
   /Users/lgariv/theos/vendor/include/_Prefix/BackwardsCompat.h \
   /Users/lgariv/theos/vendor/include/_Prefix/IOSMacros.h \

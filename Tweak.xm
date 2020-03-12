@@ -1,10 +1,10 @@
 #import "Rotaty.h"
 
-static BOOL isEnabled;
+static BOOL isEnabled = NO;
 static BOOL shouldAnimate;
 
 static float animDuration = 0.5;
-static float rotateDegree = -15;
+static float rotateDegree;
 
 static void loadPrefs();
 
@@ -15,6 +15,8 @@ static void loadPrefs();
 
     //because CGAffineTransformRotate need input by radian, you need to convert from radian to degree:
     CGFloat rotateBy = rotateDegree * pi / 180 ;
+
+    NSLog(@"%f", [[[[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.stoinks.rotatyprefs.plist"] objectForKey:@"rotateDegree"] floatValue]);
 
     if (shouldAnimate == YES) {
         //with animation (causes safe boot when closing/opening apps/folders):
@@ -34,9 +36,9 @@ static void loadPrefs() {
     NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.stoinks.rotatyprefs.plist"];
     if ( [prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : isEnabled ) {
         %init(enableTweak);
+        shouldAnimate = [[prefs objectForKey:@"shouldAnimate"] boolValue];
+        rotateDegree = [[prefs objectForKey:@"rotateDegree"] floatValue];
     }
-    shouldAnimate = [[prefs objectForKey:@"shouldAnimate"] boolValue];
-    rotateDegree = [[prefs objectForKey:@"rotateDegree"] floatValue];
 }
 
 %ctor {
