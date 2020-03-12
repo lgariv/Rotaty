@@ -1,8 +1,9 @@
 #import "Rotaty.h"
 
-static BOOL shouldAnimate = NO;
+static BOOL shouldAnimate;
 
-float rotateDegree = -15;
+static float animDuration = 0.5;
+static float rotateDegree = -15;
 
 %hook SBIconView
 -(void)setIcon:(SBIcon *)arg1 {
@@ -13,7 +14,7 @@ float rotateDegree = -15;
 
     if (shouldAnimate == YES) {
         //with animation (causes safe boot when closing/opening apps/folders):
-        [UIView animateWithDuration:0.5 animations:^{
+        [UIView animateWithDuration:animDuration animations:^{
             self.transform = CGAffineTransformRotate(CGAffineTransformIdentity,rotateBy);
         }
         completion:nil];

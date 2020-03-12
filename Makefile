@@ -11,3 +11,5 @@ Rotaty_CFLAGS = -fobjc-arc
 Rotaty_Framworks = UIKit
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += rotatypreferences
+include $(THEOS_MAKE_PATH)/aggregate.mk
