@@ -29,6 +29,8 @@
 			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Options</string>
+			<key>footer</key>
+			<string>DO NOT enable this</string>
 		</dict>
 		<dict>
 			<key>PostNotification</key>

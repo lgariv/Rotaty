@@ -14,7 +14,7 @@ static void loadPrefs();
     %orig;
 
     //because CGAffineTransformRotate need input by radian, you need to convert from radian to degree:
-    CGFloat rotateBy = rotateDegree * pi / 180 ;
+    CGFloat rotateBy = -1 * ( rotateDegree * pi / 180 ) ;
 
     if (shouldAnimate == YES) {
         //with animation (causes safe boot when closing/opening apps/folders):
@@ -35,7 +35,7 @@ static void loadPrefs() {
     if ( [prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : isEnabled ) {
         %init(enableTweak);
         shouldAnimate = [[prefs objectForKey:@"shouldAnimate"] boolValue];
-        rotateDegree = ![[prefs objectForKey:@"rotateDegree"] floatValue];
+        rotateDegree = [[prefs objectForKey:@"rotateDegree"] floatValue];
     }
 }
 

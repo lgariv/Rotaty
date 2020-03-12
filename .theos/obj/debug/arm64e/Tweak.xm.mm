@@ -40,7 +40,7 @@ static void _logos_method$enableTweak$SBIconView$setIcon$(_LOGOS_SELF_TYPE_NORMA
     _logos_orig$enableTweak$SBIconView$setIcon$(self, _cmd, arg1);
 
     
-    CGFloat rotateBy = rotateDegree * pi / 180 ;
+    CGFloat rotateBy = -1 * ( rotateDegree * pi / 180 ) ;
 
     if (shouldAnimate == YES) {
         
@@ -61,7 +61,7 @@ static void loadPrefs() {
     if ( [prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : isEnabled ) {
         {Class _logos_class$enableTweak$SBIconView = objc_getClass("SBIconView"); MSHookMessageEx(_logos_class$enableTweak$SBIconView, @selector(setIcon:), (IMP)&_logos_method$enableTweak$SBIconView$setIcon$, (IMP*)&_logos_orig$enableTweak$SBIconView$setIcon$);}
         shouldAnimate = [[prefs objectForKey:@"shouldAnimate"] boolValue];
-        rotateDegree = ![[prefs objectForKey:@"rotateDegree"] floatValue];
+        rotateDegree = [[prefs objectForKey:@"rotateDegree"] floatValue];
     }
 }
 
