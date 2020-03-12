@@ -40,7 +40,7 @@ static void _logos_method$enableTweak$SBIconView$setIcon$(_LOGOS_SELF_TYPE_NORMA
     _logos_orig$enableTweak$SBIconView$setIcon$(self, _cmd, arg1);
 
     
-    CGFloat rotateBy = !rotateDegree * pi / 180 ;
+    CGFloat rotateBy = rotateDegree * pi / 180 ;
 
     if (shouldAnimate == YES) {
         
