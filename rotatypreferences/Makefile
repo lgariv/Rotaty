@@ -1,3 +1,6 @@
+ARCHS = arm64 arm64e
+TARGET = iphone:clang:latest:latest
+
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = RotatyPreferences
