@@ -1,10 +1,14 @@
 #import "Rotaty.h"
 
+static BOOL isEnabled;
 static BOOL shouldAnimate;
 
 static float animDuration = 0.5;
 static float rotateDegree = -15;
 
+static void loadPrefs();
+
+%group enableTweak
 %hook SBIconView
 -(void)setIcon:(SBIcon *)arg1 {
     %orig;
@@ -24,3 +28,18 @@ static float rotateDegree = -15;
     }
 }
 %end
+%end
+
+static void loadPrefs() {
+    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.stoinks.rotatyprefs.plist"];
+    if ( [prefs objectForKey:@"isEnabled"] ? [[prefs objectForKey:@"isEnabled"] boolValue] : isEnabled ) {
+        %init(enableTweak);
+    }
+    shouldAnimate = [[prefs objectForKey:@"shouldAnimate"] boolValue];
+    rotateDegree = [[prefs objectForKey:@"rotateDegree"] floatValue];
+}
+
+%ctor {
+    loadPrefs();
+    CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.stoinks.rotatyprefs/prefschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+}

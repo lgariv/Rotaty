@@ -11,6 +11,8 @@
 			<string>Enabled</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>com.stoinks.rotatyprefs/prefschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -29,6 +31,8 @@
 			<string>Options</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>com.stoinks.rotatyprefs/prefschanged</string>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
@@ -47,6 +51,8 @@
 			<string>Degrees</string>
 		</dict>
 		<dict>
+			<key>PostNotification</key>
+			<string>com.stoinks.rotatyprefs/prefschanged</string>
 			<key>cell</key>
 			<string>PSSliderCell</string>
 			<key>default</key>
@@ -54,7 +60,7 @@
 			<key>defaults</key>
 			<string>com.stoinks.rotatyprefs</string> <!-- Your package name here -->
 			<key>key</key>
-			<string>keySlider</string> <!-- Your key name here -->
+			<string>rotateDegree</string> <!-- Your key name here -->
 			<key>max</key>
 			<real>90</real> <!-- Enter your maximum value here -->
 			<key>min</key>
