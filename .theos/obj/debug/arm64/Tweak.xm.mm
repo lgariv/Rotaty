@@ -4,7 +4,7 @@
 static BOOL isEnabled = NO;
 static BOOL shouldAnimate;
 
-static float animDuration = 0.5;
+static float animDuration;
 static float rotateDegree;
 
 static void loadPrefs();
@@ -62,10 +62,11 @@ static void loadPrefs() {
         {Class _logos_class$enableTweak$SBIconView = objc_getClass("SBIconView"); MSHookMessageEx(_logos_class$enableTweak$SBIconView, @selector(setIcon:), (IMP)&_logos_method$enableTweak$SBIconView$setIcon$, (IMP*)&_logos_orig$enableTweak$SBIconView$setIcon$);}
         shouldAnimate = [[prefs objectForKey:@"shouldAnimate"] boolValue];
         rotateDegree = [[prefs objectForKey:@"rotateDegree"] floatValue];
+        animDuration = [[prefs objectForKey:@"animDuration"] floatValue];
     }
 }
 
-static __attribute__((constructor)) void _logosLocalCtor_d26df6f8(int __unused argc, char __unused **argv, char __unused **envp) {
+static __attribute__((constructor)) void _logosLocalCtor_9d1dd3f5(int __unused argc, char __unused **argv, char __unused **envp) {
     loadPrefs();
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.stoinks.rotatyprefs/prefschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 }

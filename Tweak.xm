@@ -3,7 +3,7 @@
 static BOOL isEnabled = NO;
 static BOOL shouldAnimate;
 
-static float animDuration = 0.5;
+static float animDuration;
 static float rotateDegree;
 
 static void loadPrefs();
@@ -36,6 +36,7 @@ static void loadPrefs() {
         %init(enableTweak);
         shouldAnimate = [[prefs objectForKey:@"shouldAnimate"] boolValue];
         rotateDegree = [[prefs objectForKey:@"rotateDegree"] floatValue];
+        animDuration = [[prefs objectForKey:@"animDuration"] floatValue];
     }
 }
 
